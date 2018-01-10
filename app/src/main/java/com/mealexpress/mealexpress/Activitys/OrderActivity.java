@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.mealexpress.mealexpress.R;
@@ -18,10 +19,20 @@ import com.mealexpress.mealexpress.order_data.ItemHeadingData;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
+
 public class OrderActivity extends AppCompatActivity {
 
+    @InjectView(R.id.pos) Button posTextView;
+    @InjectView(R.id.neg) Button negTextView;
+    @InjectView(R.id.quantity) TextView quantityView;
+    @InjectView(R.id.addToCartRecyclerView) RecyclerView recyclerView;
+
     private int quantity = 1;
-    private RecyclerView recyclerView;
+
+
 
 
     @Override
@@ -29,36 +40,28 @@ public class OrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order);
 
+        ButterKnife.inject(this);
+
         bindToolbar();
-
-        recyclerView = findViewById(R.id.addToCartRecyclerView);
-
-        TextView posTextView = findViewById(R.id.pos);
-        final TextView negTextView  = findViewById(R.id.neg);
-        final TextView quantityView = findViewById(R.id.quantity);
 
         initRecyclerView();
 
         quantityView.setText(quantity+"");
 
-        posTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quantity++;
-                quantityView.setText(quantity+"");
-            }
-        });
+    }
 
-        negTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                quantity--;
+    @OnClick(R.id.pos)
+    private void posButton(){
+        quantity++;
+        quantityView.setText(quantity+"");
 
-                quantityView.setText(quantity+"");
+    }
 
-            }
-        });
+    @OnClick(R.id.neg)
+    private void negButton(){
+        quantity--;
 
+        quantityView.setText(quantity+"");
 
     }
 

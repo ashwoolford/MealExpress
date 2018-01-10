@@ -18,7 +18,12 @@ import com.mealexpress.mealexpress.homedata.VerticalData;
 
 import java.util.ArrayList;
 
+import butterknife.InjectView;
+
 public class MainActivity extends AppCompatActivity {
+
+    @InjectView(R.id.toolbar_title) TextView toolbar_title;
+    @InjectView(R.id.toolbar) Toolbar toolbar;
 
     private DrawerLayout drawerLayout;
     private RecyclerView recyclerView;
@@ -30,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        TextView toolbar_title = findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setTitle("");
@@ -99,7 +102,5 @@ public class MainActivity extends AppCompatActivity {
         Typeface custom_font = Typeface.createFromAsset(getApplicationContext().getAssets(),  "fonts/"+fontName);
         return custom_font;
     }
-
-
 
 }

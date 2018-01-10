@@ -29,6 +29,8 @@ import com.mealexpress.mealexpress.homedata.TitleData;
 
 import java.util.ArrayList;
 
+import butterknife.InjectView;
+
 public class DetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
 
     private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR  = 0.7f;
@@ -38,12 +40,15 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
     private boolean mIsTheTitleVisible          = false;
     private boolean mIsTheTitleContainerVisible = true;
 
-    private LinearLayout mTitleContainer;
-    private TextView mTitle;
-    private AppBarLayout mAppBarLayout;
-    private Toolbar mToolbar;
-    private RecyclerView recyclerView;
-    private TextView mAppbarTitle , mType , mEstTime, mStatus;
+    @InjectView(R.id.main_linearlayout_title) LinearLayout mTitleContainer;
+    @InjectView(R.id.main_textview_title) TextView mTitle;
+    @InjectView(R.id.app_bar_layout) AppBarLayout mAppBarLayout;
+    @InjectView(R.id.main_toolbar) Toolbar mToolbar;
+    @InjectView(R.id.detailsRecyclerview) RecyclerView recyclerView;
+    @InjectView(R.id.item_name_da) TextView mAppbarTitle;
+    @InjectView(R.id.item_type_da) TextView mType;
+    @InjectView(R.id.item_need_time_da) TextView mEstTime;
+    @InjectView(R.id.item_status_time_da) TextView mStatus;
 
 
 
@@ -62,7 +67,6 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
         mToolbar.inflateMenu(R.menu.menu_main);
         startAlphaAnimation(mTitle, 0, View.INVISIBLE);
 
-        recyclerView = findViewById(R.id.detailsRecyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         initRecyclerView();
@@ -72,26 +76,16 @@ public class DetailActivity extends AppCompatActivity implements AppBarLayout.On
     }
 
     private void bindActivity() {
-        mToolbar        = (Toolbar) findViewById(R.id.main_toolbar);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
-        mTitle          = (TextView) findViewById(R.id.main_textview_title);
         mTitle.setTypeface(setFont("Exo2-Regular.ttf"));
-
-        mTitleContainer = (LinearLayout) findViewById(R.id.main_linearlayout_title);
-        mAppBarLayout   = (AppBarLayout) findViewById(R.id.app_bar_layout);
-
-        mAppbarTitle = findViewById(R.id.item_name_da);
         mAppbarTitle.setTypeface(setFont("Exo2-Regular.ttf"));
 
-        mEstTime     = findViewById(R.id.item_need_time_da);
         mEstTime.setTypeface(setFont("Exo2-Regular.ttf"));
 
-        mStatus = findViewById(R.id.item_status_time_da);
         mStatus.setTypeface(setFont("Exo2-Regular.ttf"));
 
-        mType = findViewById(R.id.item_type_da);
         mType.setTypeface(setFont("Exo2-Regular.ttf"));
     }
 

@@ -17,6 +17,9 @@ import com.mealexpress.mealexpress.details_data.ItemsTitleData;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 /**
  * Created by josh on 1/6/2018.
  */
@@ -113,21 +116,20 @@ public class MainAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
 
     public class ContentViewHolder extends RecyclerView.ViewHolder{
-        ImageView imageView;
-        TextView title , des , price;
+        @InjectView(R.id.inner_cover) ImageView imageView;
+        @InjectView(R.id.inner_title) TextView title;
+        @InjectView(R.id.inner_des) TextView des;
+        @InjectView(R.id.inner_price) TextView price;
 
         public ContentViewHolder(View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.inner_cover);
+            ButterKnife.inject(this, itemView);
 
-            title = itemView.findViewById(R.id.inner_title);
             title.setTypeface(setFont("Exo2-SemiBold.ttf"));
 
-            des = itemView.findViewById(R.id.inner_des);
             des.setTypeface(setFont("Exo2-Regular.ttf"));
 
-            price = itemView.findViewById(R.id.inner_price);
             price.setTypeface(setFont("Exo2-Regular.ttf"));
 
         }
