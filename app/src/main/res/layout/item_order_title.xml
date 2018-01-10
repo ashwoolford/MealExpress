@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:background="#bfbfbf"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f2f2f2"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp"
+        android:textAllCaps="true"
+        android:textSize="15dp"
+        android:id="@+id/order_title"
+        android:paddingBottom="8dp"
+        android:text="Select one from here"/>
+    <View
+        android:layout_width="match_parent"
+        android:background="#bfbfbf"
+        android:layout_height="0.7dp"/>
+
+</LinearLayout>

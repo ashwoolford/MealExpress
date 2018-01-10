@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/reportToDmp"
+        android:title="Notification" />
+    />
+
+    <item
+        android:id="@+id/messages"
+        android:title="Messages"
+        />
+    <item
+        android:id="@+id/book_requested"
+        android:title="Book Requests"
+
+        />
+
+    <item
+        android:id="@+id/chatting"
+        android:title="Chats"
+
+        />
+
+    <item
+        android:id="@+id/logout"
+        android:title="logout"/>
+
+
+</menu>
